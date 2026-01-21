@@ -7,4 +7,7 @@ local wk = require("which-key")
 wk.add({
   { "<leader>t", group = "terminal" },
 })
--- local map = vim.keymap.set
+
+local keymap = vim.keymap.set
+keymap("i", "jj", "<Esc>", { desc = "Exit insert mode with jj" })
+keymap("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
