@@ -32,3 +32,93 @@ do
   vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { noremap = true, silent = true })
   vim.keymap.set("n", "<leader>Y", '"+yy', { noremap = true, silent = true })
 end
+
+vim.opt.termguicolors = true
+
+local function make_transparent()
+  local groups = {
+    "Normal",
+    "NormalNC",
+    "SignColumn",
+    "EndOfBuffer",
+    "MsgArea",
+    "FloatBorder",
+    "NormalFloat",
+    "Pmenu",
+    "PmenuSel",
+    "TelescopeNormal",
+    "TelescopeBorder",
+    "NeoTreeNormal",
+    "NeoTreeNormalNC",
+    "WhichKeyFloat",
+    "LazyNormal",
+    "CursorLine",
+    "CursorLine",
+
+    -- Tabline / Bufferline / Winbar
+    "TabLine",
+    "TabLineFill",
+    "TabLineSel",
+    "WinBar",
+    "WinBarNC",
+
+    -- Statusline / Lualine
+    "StatusLine",
+    "StatusLineNC",
+
+    -- Popup / 输入框 / 补全
+    "Pmenu",
+    "PmenuSel",
+    "PmenuSbar",
+    "PmenuThumb",
+
+    -- 分割线/边框
+    "VertSplit",
+    "WinSeparator",
+
+    -- 命令行/提示
+    "MsgArea",
+    "ModeMsg",
+    "MoreMsg",
+    "Question",
+
+    -- 搜索/匹配高亮（可选）
+    "Search",
+    "IncSearch",
+    "CurSearch",
+
+    "NeoTreeTitleBar",
+    "NeoTreeFloatBorder",
+    "NeoTreeFloatTitle",
+    "NeoTreeEndOfBuffer",
+
+    "FloatTitle",
+    "PromptNormal",
+    "PromptBorder",
+  }
+  for _, g in ipairs(groups) do
+    vim.api.nvim_set_hl(0, g, { bg = "none" })
+  end
+
+  vim.opt.cursorline = true
+  vim.opt.cursorlineopt = "number" -- 只高亮行号（最不突兀）
+  --------------------------------------------------
+  -- NeoTree 专项修复
+  --------------------------------------------------
+  vim.api.nvim_set_hl(0, "NeoTreeTitleBar", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = "none", fg = "none" })
+  vim.api.nvim_set_hl(0, "NeoTreeVertSplit", { bg = "none", fg = "none" })
+  vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+  vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
+  vim.api.nvim_set_hl(0, "WinBarNC", { bg = "none" })
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = make_transparent,
+})
+
+-- 关键：确保“启动后也执行一次”（避免错过第一次 colorscheme）
+vim.schedule(make_transparent)
