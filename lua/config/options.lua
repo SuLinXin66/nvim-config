@@ -3,6 +3,7 @@
 -- Add any additional options here
 local opt = vim.opt
 opt.listchars = { space = "·" }
+vim.o.winborder = "rounded"
 
 -- fix: system clipboard
 do
