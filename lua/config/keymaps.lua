@@ -24,3 +24,6 @@ keymap({ "n", "x" }, "X", '"_X', { desc = "Backspace delete (black hole)" })
 
 keymap({ "n", "x" }, "Q", "<CMD>:qa<CR>", { desc = " quick quit all" })
 keymap({ "n", "x" }, "qq", "<CMD>:q<CR>", { desc = " quick quit" })
+
+keymap({ "n", "x", "o" }, "<S-H>", "^", { desc = "shift line left" })
+keymap({ "n", "x", "o" }, "<S-L>", "$", { desc = "shift line right" })
