@@ -1,3 +1,12 @@
+if true then
+  return {}
+end
+local wk = require("which-key")
+
+wk.add({
+  { "<leader>t", group = "terminal" },
+})
+
 return {
   {
     "akinsho/toggleterm.nvim",
@@ -47,7 +56,7 @@ return {
         end
 
         -- default label: Shell #<n>
-        local n = term.id or vim.b.toggle_number
+        local n = term.display_name or vim.b.toggle_number
         local label = n and ("Shell #" .. n) or "Shell"
         set_term_label(term, label)
       end
@@ -130,16 +139,17 @@ return {
 
     keys = {
       -- ✅ Scratch float (always has title from the first open)
-      { "<C-\\>", "<cmd>ToggleTermScratch<cr>", mode = "n", desc = "Terminal: Scratch (float)" },
+      --{ "<C-\\>", "<cmd>ToggleTermScratch<cr>", mode = "n", desc = "Terminal: Scratch (float)" },
+      { "<C-\\>", "<cmd>ToggleTerm direction=float<cr>", desc = "Terminal: Float" },
 
       -- hide terminal (terminal-mode)
       { "<C-q>", "<cmd>ToggleTerm<cr>", mode = "t", desc = "Terminal: Hide" },
 
       -- numbered terminals
-      { "<leader>t1", "<cmd>1ToggleTerm<cr>", desc = "Terminal: #1" },
-      { "<leader>t2", "<cmd>2ToggleTerm<cr>", desc = "Terminal: #2" },
-      { "<leader>t3", "<cmd>3ToggleTerm<cr>", desc = "Terminal: #3" },
-      { "<leader>t4", "<cmd>4ToggleTerm<cr>", desc = "Terminal: #4" },
+      { "<leader>t1", "<cmd>2ToggleTerm<cr>", desc = "Terminal: #1" },
+      { "<leader>t2", "<cmd>3ToggleTerm<cr>", desc = "Terminal: #2" },
+      { "<leader>t3", "<cmd>4ToggleTerm<cr>", desc = "Terminal: #3" },
+      { "<leader>t4", "<cmd>5ToggleTerm<cr>", desc = "Terminal: #4" },
 
       -- direction helpers
       { "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Terminal: Bottom" },
