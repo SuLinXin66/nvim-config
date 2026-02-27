@@ -38,64 +38,64 @@ vim.opt.termguicolors = true
 
 local function make_transparent()
   local groups = {
-    "Normal",
-    "NormalNC",
-    "SignColumn",
-    "EndOfBuffer",
-    "MsgArea",
-    "FloatBorder",
-    "NormalFloat",
-    "Pmenu",
-    "PmenuSel",
-    "TelescopeNormal",
-    "TelescopeBorder",
-    "NeoTreeNormal",
-    "NeoTreeNormalNC",
-    "WhichKeyFloat",
-    "LazyNormal",
+    --"Normal",
+    --"NormalNC",
+    --"SignColumn",
+    --"EndOfBuffer",
+    --"MsgArea",
+    --"FloatBorder",
+    --"NormalFloat",
+    --"Pmenu",
+    --"PmenuSel",
+    --"TelescopeNormal",
+    --"TelescopeBorder",
+    --"NeoTreeNormal",
+    --"NeoTreeNormalNC",
+    --"WhichKeyFloat",
+    --"LazyNormal",
     "CursorLine",
     "CursorLine",
 
     -- Tabline / Bufferline / Winbar
-    "TabLine",
-    "TabLineFill",
-    "TabLineSel",
-    "WinBar",
-    "WinBarNC",
+    --"TabLine",
+    --"TabLineFill",
+    --"TabLineSel",
+    --"WinBar",
+    --"WinBarNC",
 
     -- Statusline / Lualine
-    "StatusLine",
-    "StatusLineNC",
+    --"StatusLine",
+    --"StatusLineNC",
 
     -- Popup / 输入框 / 补全
-    "Pmenu",
-    "PmenuSel",
-    "PmenuSbar",
-    "PmenuThumb",
+    --"Pmenu",
+    --"PmenuSel",
+    --"PmenuSbar",
+    --"PmenuThumb",
 
     -- 分割线/边框
-    "VertSplit",
-    "WinSeparator",
+    --"VertSplit",
+    --"WinSeparator",
 
     -- 命令行/提示
-    "MsgArea",
-    "ModeMsg",
-    "MoreMsg",
-    "Question",
+    --"MsgArea",
+    --"ModeMsg",
+    --"MoreMsg",
+    --"Question",
 
     -- 搜索/匹配高亮（可选）
-    "Search",
-    "IncSearch",
-    "CurSearch",
+    --"Search",
+    --"IncSearch",
+    --"CurSearch",
 
-    "NeoTreeTitleBar",
-    "NeoTreeFloatBorder",
-    "NeoTreeFloatTitle",
-    "NeoTreeEndOfBuffer",
+    --"NeoTreeTitleBar",
+    --"NeoTreeFloatBorder",
+    --"NeoTreeFloatTitle",
+    --"NeoTreeEndOfBuffer",
 
-    "FloatTitle",
-    "PromptNormal",
-    "PromptBorder",
+    --"FloatTitle",
+    --"PromptNormal",
+    --"PromptBorder",
   }
   for _, g in ipairs(groups) do
     vim.api.nvim_set_hl(0, g, { bg = "none" })
