@@ -30,3 +30,50 @@ keymap({ "n", "x" }, "qq", "<CMD>:q<CR>", { desc = " quick quit" })
 
 keymap({ "n", "x", "o" }, "<S-H>", "^", { desc = "shift line left" })
 keymap({ "n", "x", "o" }, "<S-L>", "$", { desc = "shift line right" })
+
+local wk = require("which-key")
+
+wk.add({
+  { "<leader>W", group = "copy file" },
+})
+
+local function copy(text)
+  vim.fn.setreg("+", text)
+  vim.notify("Copied: " .. text)
+end
+
+local function rel()
+  return vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+end
+
+local function abs()
+  return vim.fn.fnamemodify(vim.fn.expand("%"), ":p")
+end
+
+local function name()
+  return vim.fn.expand("%:t")
+end
+
+local function dir()
+  return vim.fn.expand("%:p:h")
+end
+
+local function fileline()
+  return rel() .. ":" .. vim.fn.line(".")
+end
+
+keymap("n", "<leader>Wf", function()
+  copy(name())
+end, { desc = "Copy filename" })
+keymap("n", "<leader>Wp", function()
+  copy(rel())
+end, { desc = "Copy relative path" })
+keymap("n", "<leader>WP", function()
+  copy(abs())
+end, { desc = "Copy absolute path" })
+keymap("n", "<leader>Wl", function()
+  copy(fileline())
+end, { desc = "Copy file:line" })
+keymap("n", "<leader>Wd", function()
+  copy(dir())
+end, { desc = "Copy directory" })
