@@ -11,6 +11,7 @@ return {
       -- 可选：如果你装了 telescope，也能用 provider=telescope
       -- "nvim-telescope/telescope.nvim",
       "hrsh7th/nvim-cmp", -- 用于聊天窗口的斜杠命令补全
+      "ravitemer/codecompanion-history.nvim",
     },
 
     -- 关键：让 CodeCompanion 能稳定找到 Copilot token（hosts.json / apps.json）
@@ -56,6 +57,21 @@ return {
         display = {
           action_palette = {
             provider = action_palette_provider,
+          },
+        },
+        extensions = {
+          history = {
+            enabled = true,
+            opts = {
+              keymap = "gh",
+              save_chat_keymap = "sc",
+              auto_save = true,
+              expiration_days = 0,
+              picker = "snacks",
+              continue_last_chat = true, -- 重启 nvim 后继续上次聊天
+              delete_on_clearing_chat = false,
+              dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
+            },
           },
         },
       }
