@@ -77,3 +77,5 @@ end, { desc = "Copy file:line" })
 keymap("n", "<leader>Wd", function()
   copy(dir())
 end, { desc = "Copy directory" })
+
+keymap({ "n", "x" }, "<localleader>d", "d", { desc = "Cut" })
