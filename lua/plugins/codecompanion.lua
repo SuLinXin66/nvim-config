@@ -81,7 +81,7 @@ return {
       -- LazyVim 常见把 AI 放在 <leader>a
       { "<leader>aa", "<cmd>CodeCompanionActions<cr>", desc = "AI: CodeCompanion Actions" },
       { "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "AI: CodeCompanion Chat" },
-      { "<leader>aC", "<cmd>CodeCompanionChat<cr>", desc = "AI: CodeCompanion Chat" },
+      { "<leader>an", "<cmd>CodeCompanionChat<cr>", desc = "AI: CodeCompanion Chat" },
       { "<leader>ai", "<cmd>CodeCompanion<cr>", desc = "AI: CodeCompanion Inline" },
       { "<leader>aC", "<cmd>CodeCompanionCmd<cr>", desc = "AI: CodeCompanion Cmd" },
 
