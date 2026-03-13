@@ -31,7 +31,7 @@ return {
       end
 
       return {
-        language = "Simplified Chinese (简体中文)", -- 这个设置会影响一些预设 prompt 的语言（比如 Code Explanation）。如果你喜欢英文 prompt，可以改成 "English" 或者干脆删掉这个字段。
+        language = "简体中文", -- 这个设置会影响一些预设 prompt 的语言（比如 Code Explanation）。如果你喜欢英文 prompt，可以改成 "English" 或者干脆删掉这个字段。
         ----------------------------------------------------------------------
         -- ✅ 核心：所有策略都走 Copilot（你有 Pro，体验最好）
         -- CodeCompanion 已明确支持 Copilot，并给了标准写法。:contentReference[oaicite:3]{index=3}
