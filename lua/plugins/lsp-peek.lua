@@ -14,14 +14,14 @@ return {
     {
       "gpf",
       function()
-        require("config.lsp_float_full").open_target_buffer_float("textDocument/definition")
+        require("tools.lsp_float_full").open_target_buffer_float("textDocument/definition")
       end,
       desc = "Peek Definition File",
     },
     {
       "gpF",
       function()
-        require("config.lsp_float_full").open_target_buffer_float("textDocument/typeDefinition")
+        require("tools.lsp_float_full").open_target_buffer_float("textDocument/typeDefinition")
       end,
       desc = "Peek Type Definition File",
     },
