@@ -1,4 +1,3 @@
-local logger = require("tools.logger")
 local has_started_once = false
 
 return {
