@@ -29,7 +29,7 @@ return {
     "mfussenegger/nvim-dap",
     opts = function(_, opts)
       local dap = require("dap")
-      dap.listeners.on_config["vscode-launch-json-handle"] = function(config, _)
+      dap.listeners.on_config["vscode-launch-json-handle"] = function(config)
         config.mode = "debug"
         config.outputMode = config.outputMode or "remote"
         if config.envFile then
