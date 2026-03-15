@@ -1,3 +1,4 @@
+local dap_utils = require("tools.dap")
 local has_started_once = false
 
 return {
@@ -22,7 +23,15 @@ return {
             return
           end
 
-          -- 3. 第一次启动，没有 last，就走 Continue
+          local last_config, err = dap_utils.read_last_run_config()
+          if err == nil and last_config then
+            -- 3. 如果之前启动过一次，并且有 last 配置，就走 Run Last
+            dap.run(last_config)
+            has_started_once = true
+            return
+          end
+
+          -- 4. 第一次启动，没有 last，就走 Continue
           -- Continue 在无 session 时会按当前 filetype 配置启动调试
           dap.continue()
           has_started_once = true

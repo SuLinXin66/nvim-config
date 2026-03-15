@@ -2,6 +2,15 @@ local logger = require("tools.logger")
 local template_expand = require("tools.template_expand")
 local io_utils = require("tools.io")
 local table_utils = require("tools.table")
+local dap_utils = require("tools.dap")
+
+local function save_last_run_config(config)
+  local ok, err = dap_utils.write_last_run_config(config)
+  if not ok then
+    logger.warn("Failed to save last run config: " .. err, "dap config")
+  end
+  return config
+end
 
 return {
   {
@@ -27,7 +36,7 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    opts = function(_, opts)
+    opts = function()
       local dap = require("dap")
       dap.listeners.on_config["vscode-launch-json-handle"] = function(config)
         config.mode = "debug"
@@ -37,12 +46,12 @@ return {
           local env_table, err = io_utils.read_env_file_to_table(env_file_path)
           if err ~= nil then
             logger.warn("Failed to read envFile: " .. err, "dap config")
-            return config
+            return save_last_run_config(config)
           end
           config.env = config.env or {}
           table_utils.merge(config.env, env_table)
         end
-        return config
+        return save_last_run_config(config)
       end
     end,
   },
