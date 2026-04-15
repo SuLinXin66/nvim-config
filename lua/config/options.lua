@@ -8,7 +8,10 @@ opt.relativenumber = false
 
 vim.o.winborder = "rounded"
 
--- fix: system clipboard
+-- fix: system clipboard — force unnamedplus even under SSH,
+-- so y always triggers the OSC 52 provider below.
+opt.clipboard = "unnamedplus"
+
 do
   local osc52 = require("vim.ui.clipboard.osc52")
 
