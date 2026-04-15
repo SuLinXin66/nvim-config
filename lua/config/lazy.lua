@@ -53,6 +53,9 @@ require("lazy").setup({
       },
     },
   },
+  git = {
+    timeout = 1800, -- 1800 seconds = 30 minutes
+  },
 })
 
 require("lspconfig").lua_ls.setup({
