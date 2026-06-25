@@ -31,6 +31,8 @@ keymap({ "n", "x" }, "qq", "<CMD>:q<CR>", { desc = " quick quit" })
 keymap({ "n", "x", "o" }, "<S-H>", "^", { desc = "shift line left" })
 keymap({ "n", "x", "o" }, "<S-L>", "$", { desc = "shift line right" })
 
+keymap("t", "ii", [[<C-\><C-n>]], { desc = "退出终端输入模式" })
+
 local wk = require("which-key")
 
 wk.add({
