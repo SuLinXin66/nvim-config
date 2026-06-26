@@ -11,6 +11,9 @@ return {
       vim.o.autoread = true -- Required for `vim.g.opencode_opts.events.reload`
 
       -- Recommended/example keymaps
+      vim.keymap.set({ "n", "x" }, "<leader>ot", function()
+        require("opencode").ask("")
+      end, { desc = "Ask OpenCode (no prefix)…" })
       vim.keymap.set({ "n", "x" }, "<leader>oa", function()
         require("opencode").ask("@this: ")
       end, { desc = "Ask OpenCode…" })
